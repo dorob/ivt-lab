@@ -19,9 +19,9 @@ public class TorpedoStore {
     String failureEnv = System.getenv("IVT_RATE");
     if (failureEnv != null){
       try {
-        FAILURE_RATE = Double.parseDouble(failureEnv);
+        failureRate = Double.parseDouble(failureEnv);
       } catch (NumberFormatException nfe) {
-        FAILURE_RATE = 0.0;
+        failureRate = 0.0;
       }
     }
   }
