@@ -59,7 +59,7 @@ public class GT4500Test {
   }
 
   @Test
-  public void fireTorpedo_AllFire_Success(){
+  public void fireTorpedo_AllFire_Fail(){
     ship.primaryTorpedoStore.makeEmpty();
     ship.secondaryTorpedoStore.makeEmpty();
     when(ship.allFireAction()).thenReturn(false);
