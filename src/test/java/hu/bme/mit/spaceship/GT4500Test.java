@@ -29,4 +29,28 @@ public class GT4500Test {
     when(ship.fireTorpedo(FiringMode.ALL)).thenReturn(true);
   }
 
+  @Test
+  public void fireTorpedo_PrimaryFire_Success(){
+    when(ship.primaryFireAction()).thenReturn(true);
+  }
+
+  @Test
+  public void fireTorpedo_SecondaryFire_Success(){
+    when(ship.secondaryFireAction()).thenReturn(true);
+  }
+
+  @Test
+  public void fireTorpedo_PrimaryFire_Fail(){
+    ship.primaryTorpedoStore.makeEmpty();
+    ship.secondaryTorpedoStore.makeEmpty();
+    when(ship.primaryFireAction().thenReturn(false));
+  }
+
+  @Test
+  public void fireTorpedo_SecondaryFire_Fail(){
+    ship.primaryTorpedoStore.makeEmpty();
+    ship.secondaryTorpedoStore.makeEmpty();
+    when(ship.secondaryFireAction().thenReturn(false));
+  }
+
 }

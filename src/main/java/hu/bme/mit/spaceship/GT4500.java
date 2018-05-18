@@ -5,8 +5,8 @@ package hu.bme.mit.spaceship;
 */
 public class GT4500 implements SpaceShip {
 
-  private TorpedoStore primaryTorpedoStore;
-  private TorpedoStore secondaryTorpedoStore;
+  public TorpedoStore primaryTorpedoStore;
+  public TorpedoStore secondaryTorpedoStore;
 
   private boolean wasPrimaryFiredLast = false;
 
@@ -20,7 +20,7 @@ public class GT4500 implements SpaceShip {
     return false;
   }
 
-  private boolean primaryFireAction() {
+  public boolean primaryFireAction() {
     if (! secondaryTorpedoStore.isEmpty()) {
       wasPrimaryFiredLast = false;
       return secondaryTorpedoStore.fire(1);
@@ -33,7 +33,7 @@ public class GT4500 implements SpaceShip {
     return false;
   }
 
-  private boolean secondaryFireAction() {
+  public boolean secondaryFireAction() {
     if (! primaryTorpedoStore.isEmpty()) {
       wasPrimaryFiredLast = true;
       return primaryTorpedoStore.fire(1);
@@ -45,13 +45,13 @@ public class GT4500 implements SpaceShip {
     return false;
   }
 
-  private boolean singleFireAction() {
+  public boolean singleFireAction() {
     if (wasPrimaryFiredLast)
       return primaryFireAction();
     return secondaryFireAction();
   }
 
-  private boolean allFireAction() {
+  public boolean allFireAction() {
     boolean firingSuccess = false;
     if (!primaryTorpedoStore.isEmpty() && !secondaryTorpedoStore.isEmpty()) {
       firingSuccess = primaryTorpedoStore.fire(1);
